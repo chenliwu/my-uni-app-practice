@@ -1,9 +1,8 @@
 <template>
-	<view class="content">
+	<view class="content uni-padding-wrap">
 		<view>
-			<text class="title">{{ title }}</text>
+			<text class="title">主页</text>
 		</view>
-		<view><button type="primary" @click="gotoLogin()">跳转到登录页面</button></view>
 	</view>
 </template>
 
@@ -11,16 +10,12 @@
 export default {
 	data() {
 		return {
-			title: 'Flexbox布局练习'
+			
 		};
 	},
 	onLoad() {},
 	methods: {
-		gotoLogin: function() {
-			uni.navigateTo({
-				url: '../login/login'
-			});
-		}
+		
 	}
 };
 </script>
@@ -34,7 +29,7 @@ export default {
 }
 
 .title {
-	font-size: 20upx;
+	font-size: 30upx;
 	color: #8f8f94;
 }
 </style>
