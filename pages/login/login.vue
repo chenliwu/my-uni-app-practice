@@ -53,7 +53,7 @@ export default {
 
 			uni.showLoading({
 				title: '正在登录中',
-				mask: false
+				mask: true
 			});
 			setTimeout(function() {
 				uni.hideLoading();
