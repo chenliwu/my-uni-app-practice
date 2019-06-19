@@ -2,6 +2,7 @@
 	<view class="content uni-padding-wrap">
 		<!-- <image style="launchImage" src="./../../static/logo.png" mode="scaleToFill"></image> -->
 		<button type="primary" @click="toLogin()">进入登录页面</button>
+		<button type="primary" @click="toTestWebView()">进入测试web-view页面</button>
 	</view>
 </template>
 
@@ -21,6 +22,11 @@ export default {
 			//页面重定向:当前页面出栈，新页面入栈
 			uni.redirectTo({
 				url: '../login/login'
+			});
+		},
+		toTestWebView:function(){
+			uni.navigateTo({
+				url: '../testWebView/testWebView'
 			});
 		}
 	}
