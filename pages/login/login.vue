@@ -62,17 +62,34 @@ export default {
 					icon: 'success',
 					mask: true
 				});
-
-				// uni.redirectTo({
-				// 	url: '../index/index'
-				// });
 				
-				// 打开Tab页面，要用reLaunch
-				uni.reLaunch({
-					url:'../tabBar/index/index'
+				// 发送登录请求
+				uni.request({
+					url: 'http://192.168.0.178:8088/webUtils/api/user/login',
+					method: 'GET',
+					data: {
+						username:account,
+						password:password
+					},
+					success: function (res) {
+						console.log('success');
+						console.log('res:',res);
+					},
+					fail: function () {
+						console.log('fail');
+					},
+					complete: function () {
+						console.log('complete');
+					}
 				});
 				
-			}, 2000);
+				
+				// 打开Tab页面，要用reLaunch
+				// uni.reLaunch({
+				// 	url:'../tabBar/index/index'
+				// });
+				
+			}, 1000);
 		}
 	}
 };
