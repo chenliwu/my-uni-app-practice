@@ -3,6 +3,7 @@
 		<!-- <image style="launchImage" src="./../../static/logo.png" mode="scaleToFill"></image> -->
 		<button type="primary" @click="toLogin()">进入登录页面</button>
 		<button type="primary" @click="toTestWebView()">进入测试web-view页面</button>
+		<button type="primary" @click="toTestSegmentControl()">进入测试segmentedControl页面</button>
 	</view>
 </template>
 
@@ -27,6 +28,11 @@ export default {
 		toTestWebView:function(){
 			uni.navigateTo({
 				url: '../testWebView/testWebView'
+			});
+		},
+		toTestSegmentControl:function(){
+			uni.navigateTo({
+				url: '../segmentedControl/segmentedControl'
 			});
 		}
 	}
