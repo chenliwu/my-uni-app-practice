@@ -5,6 +5,8 @@
 		<button type="primary" @click="toTestWebView()">进入测试web-view页面</button>
 		<button type="primary" @click="toTestTabPage()">进入测试TabPage页面</button>
 		
+		<button type="primary" @click="toApproveDetails()">进入审批详情页面</button>
+		
 	</view>
 </template>
 
@@ -40,6 +42,11 @@ export default {
 		toTestTabPage: function() {
 			uni.navigateTo({
 				url: '../testTabPage/testTabPage'
+			});
+		},
+		toApproveDetails:function(){
+			uni.navigateTo({
+				url: '../approveDetails/approveDetails'
 			});
 		}
 	}
