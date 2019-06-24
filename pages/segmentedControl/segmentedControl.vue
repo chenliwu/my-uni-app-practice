@@ -11,8 +11,8 @@
 <script>
 import uniSegmentedControl from '@/components/uni-segmented-control/uni-segmented-control.vue';
 export default {
-	onLoad:function(){
-		
+	onLoad:function(options){
+		console.log('options:',options);
 	},
 	components: { uniSegmentedControl },
 	data() {

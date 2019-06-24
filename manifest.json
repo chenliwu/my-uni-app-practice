@@ -72,8 +72,8 @@
     },
     "h5" : {
         "router" : {
-            "base" : "/h5/",
-            "mode" : "history"
+            "base" : "/webUtils/",
+            "mode" : "hash"
         },
         "title" : "myuniapp",
         "devServer" : {

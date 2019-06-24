@@ -3,7 +3,8 @@
 		<!-- <image style="launchImage" src="./../../static/logo.png" mode="scaleToFill"></image> -->
 		<button type="primary" @click="toLogin()">进入登录页面</button>
 		<button type="primary" @click="toTestWebView()">进入测试web-view页面</button>
-		<button type="primary" @click="toTestSegmentControl()">进入测试segmentedControl页面</button>
+		<button type="primary" @click="toTestTabPage()">进入测试TabPage页面</button>
+		
 	</view>
 </template>
 
@@ -25,14 +26,20 @@ export default {
 				url: '../login/login'
 			});
 		},
-		toTestWebView:function(){
+		toTestWebView: function() {
 			uni.navigateTo({
 				url: '../testWebView/testWebView'
 			});
 		},
-		toTestSegmentControl:function(){
+		toTestSegmentControl: function() {
+			var id = '123456';
 			uni.navigateTo({
-				url: '../segmentedControl/segmentedControl'
+				url: '../segmentedControl/segmentedControl?id=' + id
+			});
+		},
+		toTestTabPage: function() {
+			uni.navigateTo({
+				url: '../testTabPage/testTabPage'
 			});
 		}
 	}
@@ -41,7 +48,6 @@ export default {
 
 <style>
 .content {
-	
 }
 
 .launchImage {
