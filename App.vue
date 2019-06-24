@@ -21,8 +21,8 @@ export default {
 /*每个页面公共css */
 page {
 	background-color: #f4f5f6;
-	height: 100%;
-	font-size: 28upx;
-	line-height: 1.8;
+	/* height: 100%; */
+	/* font-size: 28upx; */
+	/* line-height: 1.8; */
 }
 </style>

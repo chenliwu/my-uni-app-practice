@@ -78,7 +78,7 @@
         "title" : "myuniapp",
         "devServer" : {
             "port" : "",
-            "https" : true
+            "https" : false
         },
         "domain" : "/h5/",
         "template" : "/Users/bytter/HBuilderProjects/hello-uniapp/template.h5.html"

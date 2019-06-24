@@ -16,9 +16,9 @@ export default {
 
 	data() {
 		return {
-			webviewUrl: 'http://192.168.0.178:8088/webUtils/testUniAppWebView',
+			webviewUrl: 'http://192.168.0.193:8088/webUtils/testUniAppWebView',
 			approveDetailUrl:
-				'http://192.168.0.178:8080/t2/api/flow/detailPage' +
+				'http://192.168.0.193:8080/t2/api/flow/detailPage' +
 				'?access_token=eac77a7ee4a651e819cd47d4104f2734' +
 				'&id=250e4675-8e49-11e9-9fa3-8c89a59654fd' +
 				'&type=0' +
