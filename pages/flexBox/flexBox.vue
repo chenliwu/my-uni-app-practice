@@ -7,6 +7,7 @@
 			<view class="view3">view3</view>
 		</view>
 
+		<!-- 纵向布局 -->
 		<view style="display: flex;flex-direction: column;">
 			<view class="flex-item uni-bg-red">A</view>
 			<view class="flex-item uni-bg-green">B</view>
