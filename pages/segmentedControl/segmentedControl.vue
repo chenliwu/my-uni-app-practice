@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<uni-segmented-control :current="current" :values="items" @clickItem="onClickItem" style-type="text" active-color="#4cd964"></uni-segmented-control>
+		<uni-segmented-control style="width: 100%;" :current="current" :values="segmentTitleItems" @clickItem="onClickItem" style-type="text" active-color="#6a91f8"></uni-segmented-control>
 		<view class="content">
 			<view v-show="current === 0">选项卡1的内容</view>
 			<view v-show="current === 1">选项卡2的内容</view>
@@ -17,7 +17,7 @@ export default {
 	components: { uniSegmentedControl },
 	data() {
 		return {
-			items: ['选项卡1', '选项卡2'],
+			segmentTitleItems: ['选项卡1', '选项卡2'],
 			current: 0
 		};
 	},
@@ -31,4 +31,7 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+	
+	
+</style>
