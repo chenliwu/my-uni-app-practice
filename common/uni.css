@@ -19,6 +19,7 @@ form {
 .uni-flex {
 	display: flex;
 	flex-direction: row;
+	display: -webkit-flex;
 }
 .uni-flex-item {
 	flex: 1;
