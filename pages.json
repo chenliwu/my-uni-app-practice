@@ -108,6 +108,12 @@
             "path" : "pages/testFlowTrace/testFlowTrace",
             "style" : {}
         }
+        ,{
+            "path" : "pages/testCustomComponent/testCustomComponent",
+            "style" : {
+				"navigationBarTitleText": "测试自定义组件"
+			}
+        }
     ],
 	"globalStyle": {
 		// "navigationStyle":"custom",	// 默认是default，即带有原生导航栏。也可以设置为custom。在设为custom后，所有页面都没有原生导航。

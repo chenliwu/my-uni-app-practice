@@ -1,9 +1,7 @@
 <template>
-	<view style="height: 100vh;" class="flex">
+	<view style="height: 100vh;">
 
-		<MyTaskContainer :flowTrackList="flowTrackList"></MyTaskContainer>
-
-		<!-- <block v-for="(flowTrack,index) in flowTrackList" :key="index">
+		<block v-for="(flowTrack,index) in flowTrackList" :key="index">
 			<view style="margin-top: 5px;margin-bottom: 10px;" class="uni-flex uni-column">
 
 				<view style="justify-content: space-between ;align-items: center;padding-right: 10px;" class="uni-flex uni-row">
@@ -18,6 +16,7 @@
 
 					<view style="padding-left: 15px;padding-right: 10px;margin-top: 10px;" class="uni-flex uni-row">
 
+						<!-- 分割线 -->
 						<view style="justify-content: center;align-items: center;" class="uni-flex uni-column">
 							<view v-bind:style="{'background-color':getColorByTaskStatus(task.status)}" style="flex: 2;background-color: #22ca93;width: 2px;min-height: 15px;"></view>
 							<view v-bind:style="{'background-color':getColorByTaskStatus(task.status)}" style="background-color: #fbaa5c;width: 10px;height: 10px;border-radius: 50%;margin: 3px;"></view>
@@ -26,12 +25,15 @@
 
 						<view style="flex:1;justify-content: center;" class="uni-flex uni-column">
 
+
+
 							<view style="justify-content: space-between ;align-items: center;padding: 5px;" class="uni-flex uni-row">
 
 								<view style="justify-content: center;align-items: center;" class="uni-flex uni-row">
 									<image style="width: 15px;height: 15px;margin-right: 5px;" src="../../static/images/icon_list_approver@2x.png"></image>
 									<view class=""><text>{{task.username}}</text></view>
 								</view>
+								<!-- 处理中/节点耗时 -->
 								<view class=""><text class="task-label-text">{{task.endTime ? '结束时间：'+task.endTime : '处理中'}}</text></view>
 							</view>
 
@@ -67,79 +69,28 @@
 				</block>
 
 			</view>
-		</block> -->
+		</block>
 
 	</view>
 </template>
 
 <script>
-	import MyTaskContainer from '../../components/MyTaskContainer/MyTaskContainer.vue';
 	export default {
-		components:{
-			MyTaskContainer
+		name:'MyTaskContainer',
+		props:{
+			flowTrackList:{
+				type:Array,
+				default(){
+					return [];
+				}
+			}
 		},
 		data() {
 			return {
-				flowTrackList: [{
-						taskList: [{
-								comment: '审批意见1',
-								createTime: '创建时间1',
-								duration: '节点耗时1',
-								endTime: '结束时间1',
-								status: '1',
-								userCode: '用户代码1',
-								username: '用户名1'
-							},
-							{
-								comment: '审批意见2',
-								createTime: '创建时间2',
-								duration: '节点耗时2',
-								endTime: '结束时间2',
-								status: '2',
-								userCode: '用户代码2',
-								username: '用户名2'
-							},
-						],
-						taskName: '任务名称1'
-					},
-					{
-						taskList: [{
-								comment: '审批意见1',
-								createTime: '创建时间1',
-								duration: '节点耗时1',
-								endTime: '结束时间1',
-								status: '3',
-								userCode: '用户代码1',
-								username: '用户名1'
-							},
-							{
-								comment: '审批意见2',
-								createTime: '创建时间2',
-								duration: '节点耗时2',
-								endTime: '结束时间2',
-								status: '1',
-								userCode: '用户代码2',
-								username: '用户名2'
-							},
-						],
-						taskName: '任务名称2'
-					},
-					{
-						taskList: [{
-							comment: null,
-							createTime: '创建时间1',
-							duration: '节点耗时1',
-							endTime: null,
-							status: 0,
-							userCode: '用户代码1',
-							username: '用户名1'
-						}],
-						taskName: '任务名称2'
-					}
-				],
-			}
+
+			};
 		},
-		methods: {
+		methods:{
 			getColorByTaskStatus(status) {
 				if (status == 1) {
 					return '#22ca93';
@@ -155,8 +106,21 @@
 </script>
 
 <style>
-	.task-label-text {
-		font-size: 14px;
-		color: #888888;
+	.uni-flex {
+		display: flex;
+		flex-direction: row;
+		display: -webkit-flex;
+	}
+
+	.uni-flex-item {
+		flex: 1;
+	}
+
+	.uni-row {
+		flex-direction: row;
+	}
+
+	.uni-column {
+		flex-direction: column;
 	}
 </style>
