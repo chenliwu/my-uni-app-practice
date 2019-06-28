@@ -1,0 +1,23 @@
+{
+  "name": "my-uni-app-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenliwu/my-uni-app-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenliwu/my-uni-app-practice/issues"
+  },
+  "homepage": "https://github.com/chenliwu/my-uni-app-practice#readme",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}

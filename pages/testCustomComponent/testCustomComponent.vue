@@ -1,73 +1,83 @@
 <template>
 	<view style="height: 100vh;" class="flex">
-		<MyTaskContainer :flowTrackList="flowTrackList"></MyTaskContainer>
+		
+		<block v-for="(instanceList,indexA) in dataSource" :key="indexA">
+			<view>	
+				<block v-for="(task,indexB) in instanceList" :key="indexB">
+					<MyTaskContainer :task="task"></MyTaskContainer>
+				</block>			
+			</view>
+		</block>
+		
 	</view>
 </template>
 
 <script>
 	import MyTaskContainer from '../../components/MyTaskContainer/MyTaskContainer.vue';
 	export default {
-		components:{
+		components: {
 			MyTaskContainer
 		},
 		data() {
 			return {
-				flowTrackList: [{
-						taskList: [{
-								comment: '审批意见1',
-								createTime: '创建时间1',
-								duration: '节点耗时1',
-								endTime: '结束时间1',
-								status: '1',
+				dataSource: [
+					[{
+							taskList: [{
+									comment: '审批意见1',
+									createTime: (new Date()).getTime(),
+									duration: (new Date()).getTime(),
+									endTime:  (new Date()).getTime(),
+									status: '1', 
+									userCode: '用户代码1',
+									username: '用户名1'
+								},
+								{
+									comment: '审批意见2',
+									createTime: (new Date()).getTime(),
+									duration: (new Date()).getTime(),
+									endTime: (new Date()).getTime(),
+									status: '2',
+									userCode: '用户代码2',
+									username: '用户名2'
+								},
+							],
+							taskName: '任务名称1'
+						},
+						{
+							taskList: [{
+									comment: '审批意见1',
+									createTime: (new Date()).getTime(),
+									duration: (new Date()).getTime(),
+									endTime: (new Date()).getTime(),
+									status: '3',
+									userCode: '用户代码1',
+									username: '用户名1'
+								},
+								{
+									comment: '审批意见2',
+									createTime: '创建时间2',
+									duration: '节点耗时2',
+									endTime: null,
+									status: '1',
+									userCode: '用户代码2',
+									username: '用户名2'
+								},
+							],
+							taskName: '任务名称2'
+						},
+						{
+							taskList: [{
+								comment: null,
+								createTime: (new Date()).getTime(),
+								duration: 0,
+								endTime: null,
+								status: 0,
 								userCode: '用户代码1',
 								username: '用户名1'
-							},
-							{
-								comment: '审批意见2',
-								createTime: '创建时间2',
-								duration: '节点耗时2',
-								endTime: '结束时间2',
-								status: '2',
-								userCode: '用户代码2',
-								username: '用户名2'
-							},
-						],
-						taskName: '任务名称1'
-					},
-					{
-						taskList: [{
-								comment: '审批意见1',
-								createTime: '创建时间1',
-								duration: '节点耗时1',
-								endTime: '结束时间1',
-								status: '3',
-								userCode: '用户代码1',
-								username: '用户名1'
-							},
-							{
-								comment: '审批意见2',
-								createTime: '创建时间2',
-								duration: '节点耗时2',
-								endTime: '结束时间2',
-								status: '1',
-								userCode: '用户代码2',
-								username: '用户名2'
-							},
-						],
-						taskName: '任务名称2'
-					},
-					{
-						taskList: [{
-							comment: null,
-							createTime: '创建时间1',
-							duration: '节点耗时1',
-							endTime: null,
-							status: 0,
-							userCode: '用户代码1',
-							username: '用户名1'
-						}],
-						taskName: '任务名称2'
-					}
+							}],
+							taskName: '任务名称2'
+						}
+					]
 				],
 			}
 		},
