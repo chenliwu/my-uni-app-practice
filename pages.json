@@ -78,6 +78,32 @@
             "path" : "pages/testFabButton/testFabButton",
             "style" : {}
         }
+        ,{
+            "path" : "pages/testUserAuthentication/testUserAuthentication",
+            "style" : {
+				"navigationBarTitleText": "测试身份验证"
+			}
+        },
+		{
+            "path" : "pages/testUserAuthentication/AuthenticationFaild",
+            "style" : {
+				"navigationBarTitleText": "身份验证失败"
+			}
+        },
+		{
+            "path" : "pages/testUserAuthentication/AuthenticationSuccess",
+            "style" : {
+				"navigationBarTitleText": "身份验证成功"
+			}
+        }
+        ,{
+            "path" : "pages/testAxios/testAxios",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/testMyTab/testMyTab",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		// "navigationStyle":"custom",	// 默认是default，即带有原生导航栏。也可以设置为custom。在设为custom后，所有页面都没有原生导航。
