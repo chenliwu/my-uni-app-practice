@@ -72,7 +72,7 @@
     },
     "h5" : {
         "router" : {
-            "base" : "/webUtils/",
+            "base" : "/webUtils/h5/",
             "mode" : "hash"
         },
         "title" : "myuniapp",
@@ -80,7 +80,7 @@
             "port" : "",
             "https" : false
         },
-        "domain" : "/h5/",
+        "domain" : "/webUtils/h5/",
         "template" : "/Users/bytter/HBuilderProjects/hello-uniapp/template.h5.html"
     }
 }
