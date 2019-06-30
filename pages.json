@@ -120,6 +120,10 @@
 				"navigationBarTitleText": "测试数据存储"
 			}
         }
+        ,{
+            "path" : "pages/testBase64/testBase64",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		// "navigationStyle":"custom",	// 默认是default，即带有原生导航栏。也可以设置为custom。在设为custom后，所有页面都没有原生导航。
