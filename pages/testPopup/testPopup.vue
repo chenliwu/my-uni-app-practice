@@ -1,19 +1,19 @@
 <template>
 	<view>
 		<button type="button" data-position="bottom" @click="togglePopup('bottom-share')">底部弹出（分享界面）</button>
-		<uni-popup class="uni-flex uni-column" :show="type === 'bottom-share'" position="bottom" @hidePopup="togglePopup('')">
-			<view style="display: flex;width: 100%;" class="uni-flex uni-column">
-				<view style="height: 30px;line-height: 30px;font-size: 16px;padding: 5px 0;"></view>
-				<view style="padding: 5px;width: 100%;margin-bottom: 10px;" class="uni-flex">
-					<!-- <input id="inputCommentElement" focus="true" style="width: 100%;background-color: #FFFFFF;padding: 5px; -webkit-overflow-scrolling: touch;"
-					 placeholder="输入意见..." /> -->
-
-					<textarea style="flex:1;text-align:left;padding: 5px;height: 100px;border: 1px solid #C8C7CC;margin-right: 10px;" @blur="bindTextAreaBlur"
+		
+		<uni-popup  :show="type === 'bottom-share'" position="bottom" @hidePopup="togglePopup('')">
+			<view style="flex:1;width: 100%;" class="uni-flex uni-column">
+				
+				<view style="height: 25px;line-height: 25px;font-size: 16px;"></view>
+				<view style="width: 100%;margin-bottom: 10px;justify-content: center;align-items: center;" class="uni-flex">
+		
+					<textarea style="width: 90%;text-align:left;border: 1px solid #C8C7CC;" @blur="bindTextAreaBlur"
 					 placeholder="请输入签字意见..." />
-
+			
 				</view>
 				
-				<view class="uni-flex uni-row text-center" style="flex:1;">
+				<view class="uni-flex uni-row" style="display: flex;flex-direction: row;height: 45px;line-height: 45px;">
 					<view  class="submit-button ripple" style="background-color:#f76767;flex:1;">
 						<text class="submit-button-text">打回制单处</text>
 					</view>
@@ -26,7 +26,7 @@
 				<!-- <view class="bottom-btn" @click="togglePopup('')">完成</view> -->
 			</view>
 		</uni-popup>
-	</view>
+		
 	</view>
 </template>
 
