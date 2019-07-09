@@ -51,118 +51,102 @@
 		}, {
 			"path": "pages/segmentedControl/segmentedControl",
 			"style": {
-				"navigationStyle": "custom",	//隐藏顶部导航栏
+				"navigationStyle": "custom", //隐藏顶部导航栏
 				"navigationBarTitleText": "测试segmentedControl"
 			}
-		}
-	    ,{
-            "path" : "pages/testTabPage/testTabPage",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/approveDetails/approveDetails",
-            "style" : {
-				"navigationStyle": "custom",	//隐藏顶部导航栏
+		}, {
+			"path": "pages/testTabPage/testTabPage",
+			"style": {}
+		}, {
+			"path": "pages/approveDetails/approveDetails",
+			"style": {
+				"navigationStyle": "custom", //隐藏顶部导航栏
 				"navigationBarTitleText": "审批详情"
 			}
-        }
-        ,{
-            "path" : "pages/flexBox/flexBox",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testUniTab/testUniTab",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testFabButton/testFabButton",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testUserAuthentication/testUserAuthentication",
-            "style" : {
+		}, {
+			"path": "pages/flexBox/flexBox",
+			"style": {}
+		}, {
+			"path": "pages/testUniTab/testUniTab",
+			"style": {}
+		}, {
+			"path": "pages/testFabButton/testFabButton",
+			"style": {}
+		}, {
+			"path": "pages/testUserAuthentication/testUserAuthentication",
+			"style": {
 				"navigationBarTitleText": "测试身份验证"
 			}
-        },
+		},
 		{
-            "path" : "pages/testUserAuthentication/AuthenticationFaild",
-            "style" : {
+			"path": "pages/testUserAuthentication/AuthenticationFaild",
+			"style": {
 				"navigationBarTitleText": "身份验证失败"
 			}
-        },
+		},
 		{
-            "path" : "pages/testUserAuthentication/AuthenticationSuccess",
-            "style" : {
+			"path": "pages/testUserAuthentication/AuthenticationSuccess",
+			"style": {
 				"navigationBarTitleText": "身份验证成功"
 			}
-        }
-        ,{
-            "path" : "pages/testAxios/testAxios",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testMyTab/testMyTab",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testFlowTrace/testFlowTrace",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testCustomComponent/testCustomComponent",
-            "style" : {
+		}, {
+			"path": "pages/testAxios/testAxios",
+			"style": {}
+		}, {
+			"path": "pages/testMyTab/testMyTab",
+			"style": {}
+		}, {
+			"path": "pages/testFlowTrace/testFlowTrace",
+			"style": {}
+		}, {
+			"path": "pages/testCustomComponent/testCustomComponent",
+			"style": {
 				"navigationBarTitleText": "测试自定义组件"
 			}
-        }
-        ,{
-            "path" : "pages/testStorage/testStorage",
-            "style" : {
+		}, {
+			"path": "pages/testStorage/testStorage",
+			"style": {
 				"navigationBarTitleText": "测试数据存储"
 			}
-        }
-        ,{
-            "path" : "pages/testBase64/testBase64",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testUrlParamDecrypt/testUrlParamDecrypt",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testStore/testStore",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testHuayou/testHuayou",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testMoveable/testMoveable",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testMyMoveableComponent/testMyMoveableComponent",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/testWebviewPosition/testWebviewPosition",
-            "style" : {
-				"disableScroll":true
+		}, {
+			"path": "pages/testBase64/testBase64",
+			"style": {}
+		}, {
+			"path": "pages/testUrlParamDecrypt/testUrlParamDecrypt",
+			"style": {}
+		}, {
+			"path": "pages/testStore/testStore",
+			"style": {}
+		}, {
+			"path": "pages/testHuayou/testHuayou",
+			"style": {}
+		}, {
+			"path": "pages/testMoveable/testMoveable",
+			"style": {}
+		}, {
+			"path": "pages/testMyMoveableComponent/testMyMoveableComponent",
+			"style": {}
+		}, {
+			"path": "pages/testWebviewPosition/testWebviewPosition",
+			"style": {
+				"disableScroll": true
 			}
-        }
-        ,{
-            "path" : "pages/testInputPosition/testInputPosition",
-            "style" : {
-				"navigationStyle": "custom"	//隐藏顶部导航栏
+		}, {
+			"path": "pages/testInputPosition/testInputPosition",
+			"style": {
+				"navigationStyle": "custom" //隐藏顶部导航栏
 			}
-        }
-        ,{
-            "path" : "pages/testAbsolutePosition/testAbsolutePosition",
-            "style" : {
-				"navigationStyle": "custom"	//隐藏顶部导航栏
+		}, {
+			"path": "pages/testAbsolutePosition/testAbsolutePosition",
+			"style": {
+				"navigationStyle": "custom" //隐藏顶部导航栏
 			}
-        }
-    ],
+		}, {
+			"path": "pages/testCryptoJS/testCryptoJS",
+			"style": {}
+
+		}
+	],
 	"globalStyle": {
 		// "navigationStyle":"custom",	// 默认是default，即带有原生导航栏。也可以设置为custom。在设为custom后，所有页面都没有原生导航。
 		"navigationBarTextStyle": "black",
