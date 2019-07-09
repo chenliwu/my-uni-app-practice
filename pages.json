@@ -147,6 +147,18 @@
         ,{
             "path" : "pages/testCryptoJS/testCryptoJS",
             "style" : {}
+        },
+		{
+		    "path" : "pages/testCryptoJS/testUrlParamEnctypt",
+		    "style" : {}
+		}
+        ,{
+            "path" : "pages/testPopup/testPopup",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/testPopupLayer/testPopupLayer",
+            "style" : {}
         }
     ],
 	"globalStyle": {

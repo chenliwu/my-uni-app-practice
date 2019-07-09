@@ -5,7 +5,7 @@
 import CryptoJS from 'crypto-js';
 
 // AES加密和解密的密匙
-const AES_KEY = "chenlw";
+const AES_KEY = "Bytter2019";
 
 const AESUtils = {
 	
@@ -14,7 +14,7 @@ const AESUtils = {
 	 * @param {Object} value 要加密的值
 	 */
 	encrypt(value){
-		return CryptoJS.AES.encrypt(value, AES_KEY).toString();
+		return encodeURIComponent(CryptoJS.AES.encrypt(value, AES_KEY).toString()) ;
 	},
 	
 	/**
@@ -23,7 +23,7 @@ const AESUtils = {
 	 * 如果解密不成功，则返回""
 	 */
 	decrypt(value){
-		var bytes = CryptoJS.AES.decrypt(value, AES_KEY);
+		var bytes = CryptoJS.AES.decrypt( decodeURIComponent(value), AES_KEY);
 		return bytes.toString(CryptoJS.enc.Utf8);
 	}
 };
