@@ -1,7 +1,6 @@
 
 const todoApproveStore = {
 	state:{
-		hasLogin:'todoApproveStore.hashLogin',
 		approveItem:{
 			name:'todoApproveStore的approveItem'
 		},
@@ -15,10 +14,7 @@ const todoApproveStore = {
 			console.log('todoApproveStore.getApprotem.params:',params);
 			return state.approveItem;
 		},
-		hasLogin(state){
-			console.log('todoApproveStore.userStore.getters.hasLogin');
-			return state.hasLogin;
-		}
+		
 	}
 }
 
