@@ -71,11 +71,11 @@
 				console.log('files:', files);
 
 				uni.uploadFile({
-					url: 'http://192.168.16.104:8080/file/uploadFiles', 
+					url: 'http://192.168.16.110:8080/file/uploadFiles',
 					filePath: '',
-					files:files,
+					files: files,
 					name: 'files',
-					fileType:'image',
+					fileType: 'image',
 					formData: {
 						'user': 'test'
 					},
@@ -83,7 +83,7 @@
 						console.log('success');
 						console.log(uploadFileRes.data);
 					},
-					fail:function(){
+					fail: function() {
 						console.log('fail');
 					}
 				});
