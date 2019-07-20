@@ -193,6 +193,14 @@
             "path" : "pages/testUploadFile1/testUploadFile1",
             "style" : {}
         }
+        ,{
+            "path" : "pages/testPickDatetime/testPickDatetime",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/testPickDatetime1/testPickDatetime1",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		// "navigationStyle":"custom",	// 默认是default，即带有原生导航栏。也可以设置为custom。在设为custom后，所有页面都没有原生导航。
