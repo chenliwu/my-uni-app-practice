@@ -14,9 +14,9 @@ import { Base64 } from 'js-base64';
 export default {
 	data() {
 		return {
-			timestamp:'',
+			timestamp:'1565794825703',
 			dataString: 'chenlw',
-			base64EncodeString:'',
+			base64EncodeString:'MTU2NTc5NDgyNTcwM2NoZW5sdw==',
 			base64DecodeString:''
 		};
 	},
@@ -28,7 +28,7 @@ export default {
 			// console.log('base64Encode');
 			// this.base64EncodeString = Base64.encode(this.dataString);
 			// console.log('base64EncodeString:',this.base64EncodeString);
-			this.timestamp = (new Date()).getTime();
+			// this.timestamp = (new Date()).getTime();
 			this.base64EncodeString = Base64.encode(this.timestamp+this.dataString);
 		},
 		base64Decode() {
