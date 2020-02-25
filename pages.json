@@ -202,7 +202,8 @@
             "style" : {}
         }
         ,{
-            "path" : "pages/testCanvas/testCanvas",
+            // "path" : "pages/testCanvas/testCanvas",
+			"path" : "pages/testCanvas/sketchCanvas1",
             "style" : {}
         }
     ],

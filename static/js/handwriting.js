@@ -26,7 +26,7 @@ export default class {
 	constructor(opts) {
 		// console.log(opts);
 		this.lineColor = opts.lineColor || '#1A1A1A' // 颜色
-		this.lineSise = opts.lineSise || 50
+		this.lineSise = opts.lineSise || 50;
 		this.canvasName = opts.canvasName || 'handWriting'
 		this.init()
 	}
@@ -364,6 +364,7 @@ export default class {
 		return new Promise((resolve, rej) => {
 			uni.canvasToTempFilePath({
 				canvasId: this.canvasName,
+				quality:0.8,
 				success: function(res) {
 					resolve(res.tempFilePath);
 				},

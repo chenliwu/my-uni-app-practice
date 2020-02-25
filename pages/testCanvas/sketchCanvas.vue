@@ -1,22 +1,14 @@
 <template>
-	<view style="display: flex;flex:1;" class="wrap">
+	<view style="display: flex;" class="wrap">
 		<view class="wrap-head">
 			<text @click="close=false" v-if="close">开启画笔</text>
 			<text @click="close=true" v-else class="wrap-head-close">关闭画笔</text>
 			<text @click="subCanvas">保存涂鸦</text>
 		</view>
 		<view class="handCenter" style="display: flex;flex:1;height: 400px;width: 100%;">
-			<!-- 开启 -->
-			<!-- 绑定自定义信息 -->
-			<!--画笔开始-->
-			<!-- 画笔移动 -->
-			<!-- 画笔结束 -->
-
 			<!-- 透明的 canvas-->
-			<canvas class="myCanvas" disable-scroll="true" data-id="0" @touchstart="penStart" @touchmove="penMove" @touchend="penEnd"
-			 canvas-id="myCanvas1"></canvas>
-			<!-- 为了保证在手机上能正常上下滑动 -->
-			<!-- <view v-show="close" class="wrap-index" :style="{width:i.cavWidth+'px',height:i.cavHeight+'px'}"></view> -->
+			<canvas id="myCanvas" class="myCanvas" disable-scroll="true" data-id="0" @touchstart="penStart" @touchmove="penMove"
+			 @touchend="penEnd" canvas-id="myCanvas"></canvas>
 		</view>
 		<view v-if="!close&&open" class="marking-tag3">
 			<!-- 颜色 -->
@@ -42,6 +34,13 @@
 			</view>
 		</view>
 		<view v-else-if="!close&&!open" @tap="open=true" class="marking-tag2">展开</view>
+
+		<view class="handCenter" style="display: flex;flex:1;height: 400px;width: 100%;">
+			<canvas id="showImgCancas" style="width: 100vh;height: 100vh;" disable-scroll="true"
+			 canvas-id="showImgCancas"></canvas>
+		</view>
+
+
 	</view>
 </template>
 
@@ -100,48 +99,21 @@
 						active: false
 					}
 				],
-				//当前的图片路径
-				answerPhoto: ["/static/img/img3.jpg", "/static/img/img2.jpg"],
-				// 保存图片、画布宽高
-				ImageInfo: [],
-				// new出来的实例
-				canvasInfo: [],
-				// 有涂鸦的图片的下标
-				imgIndex: [],
+
+
+
 			};
 		},
 		onReady() {
-			// 获取图片信息
-			// this.getImageInfo();
 
+			// 创建canvas实例
 			this.canvasOperateObject = new Mycanvas({
 				lineColor: this.lineColor,
 				lineSise: this.lineSise,
-				canvasName: "myCanvas1",
+				canvasName: "myCanvas",
 			});
+		},
 
-			// this.canvasInfo.push(
-			// 	new Mycanvas({
-			// 		lineColor: this.lineColor,
-			// 		lineSise: this.lineSise,
-			// 		canvasName: "myCanvas1",
-			// 	})
-			// );
-		},
-		watch: {
-			// new出canvas的实例
-			// ImageInfo(ImageInfo) {
-			// 	this.ImageInfo.map((i, j) => {
-			// 		this.canvasInfo.push(
-			// 			new Mycanvas({
-			// 				lineColor: this.lineColor,
-			// 				lineSise: this.lineSise,
-			// 				canvasName: "myCanvas" + j,
-			// 			})
-			// 		);
-			// 	});
-			// }
-		},
 		computed: {
 			//颜色
 			lineColor: {
@@ -159,23 +131,6 @@
 			}
 		},
 		methods: {
-			// 获取图片信息
-			async getImageInfo() {
-				// let newArr = [];
-				// for (let i = 0; i < this.answerPhoto.length; i++) {
-				// 	let [, image] = await uni.getImageInfo({
-				// 		src: this.answerPhoto[i]
-				// 	});
-				// 	newArr.push({
-				// 		url: this.answerPhoto[i],
-				// 		cavWidth: this.widths(image.width),
-				// 		cavHeight: this.heights(image.height, image.width),
-				// 		imgWidth: image.width,
-				// 		imgHeight: image.height
-				// 	});
-				// }
-				// this.ImageInfo = newArr;
-			},
 			//计算宽
 			widths(imgWidth) {
 				const res = uni.getSystemInfoSync();
@@ -198,10 +153,7 @@
 			},
 			// 笔迹粗细滑块
 			updateThickness(value) {
-				// this.canvasInfo.map(i => {
-				// 	i.selectSlideValue(value);
-				// });
-				
+
 				this.canvasOperateObject.selectSlideValue(value);
 				this.thickness.map(i => {
 					if (i.thickness == value) {
@@ -214,9 +166,7 @@
 			},
 			// 选择画笔颜色
 			updateColor(color) {
-				// this.canvasInfo.map(i => {
-				// 	i.selectColorEvent(color);
-				// });
+
 				this.canvasOperateObject.selectColorEvent(color);
 				this.colorArr.map(i => {
 					if (i.color == color) {
@@ -229,67 +179,54 @@
 			},
 			// 清除画布
 			retDraw() {
-				// this.canvasInfo.map(i => {
-				// 	i.retDraw();
-				// });
+
 				this.canvasOperateObject.retDraw();
-				
+				this.cancasImageBase64 = null;
 			},
 			// 笔迹开始
 			penStart(event) {
-				if (this.close) return;
-				let index = "";
-				//#ifdef H5
-				index = event.currentTarget.dataset.id;
-				//#endif
-
-				// #ifdef  MP-WEIXIN
-				index = event.target.dataset.id;
-				// #endif
-				// 涂鸦后的下标
-				this.imgIndex.push(index);
-				// this.canvasInfo[index].penStart(event);
 				this.canvasOperateObject.penStart(event);
 			},
 			// 笔迹移动
 			penMove(event) {
-				if (this.close) return;
-				let index = "";
-				// #ifdef  MP-WEIXIN
-				index = event.target.dataset.id;
-				// #endif
-				//#ifdef H5
-				index = event.currentTarget.dataset.id;
-				//#endif
-				// this.canvasInfo[index].penMove(event);
 				this.canvasOperateObject.penMove(event);
 			},
 			// 笔迹结束
 			penEnd(event) {
-				if (this.close) return;
-				let index = "";
-				// #ifdef  MP-WEIXIN
-				index = event.target.dataset.id;
-				// #endif
-				//#ifdef H5
-				index = event.currentTarget.dataset.id;
-				//#endif
-				// this.canvasInfo[index].penEnd(event);
 				this.canvasOperateObject.penEnd(event);
 			},
 			// 保存涂鸦的图片
 			async subCanvas() {
-				// let index = [...new Set(this.imgIndex)];
-				// if (index.length !== 0) {
-				// 	for (let i = 0; i < index.length; i++) {
-				// 		// h5环境下为base
-				// 		const data = await this.canvasInfo[index[i]].saveCanvas();
-				// 		console.log(data);
-				// 	}
-				// }
 				const data = await this.canvasOperateObject.saveCanvas();
 				console.log(data);
-			}
+				this.base64StringToCancas(data);
+			},
+
+			imageError: function(error) {
+				console.log("imageError", error);
+			},
+
+			/**
+			 * 将base64字符串显示到canvas组件上
+			 * @param {Object} base64String
+			 */
+			base64StringToCancas: function(base64String) {
+				const context = uni.createCanvasContext('showImgCancas');
+				// dWidth 在目标画布上绘制图像的宽度，允许对绘制的图像进行缩放
+				// dHeight 在目标画布上绘制图像的高度，允许对绘制的图像进行缩放
+				let dWidth = 300;
+				let dHeight = 300;
+				const {
+					windowWidth,
+					windowHeight
+				} = uni.getSystemInfoSync();
+				console.log("getSystemInfoSync:", uni.getSystemInfoSync());
+				context.drawImage(base64String, 0, 0, dWidth, dHeight);
+				context.draw();
+			},
+
+
+
 		}
 	};
 </script>
@@ -420,11 +357,6 @@
 			margin: 5rpx auto;
 			position: relative;
 			z-index: 2;
-		}
-
-		.cavImg {
-			position: absolute;
-			z-index: -1;
 		}
 
 		.wrap-index {
