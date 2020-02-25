@@ -1,45 +1,33 @@
 <template>
-	<view style="display: flex;" class="wrap">
-		<view class="wrap-head">
-			<text @click="close=false" v-if="close">开启画笔</text>
-			<text @click="close=true" v-else class="wrap-head-close">关闭画笔</text>
-			<text @click="subCanvas">保存涂鸦</text>
-		</view>
-		<view class="handCenter" style="display: flex;flex:1;height: 400px;width: 100%;">
+	<view style="display: flex;flex:1;" class="wrap">
+
+		<view class="handCenter" style="display: flex;flex:1;height: 80vh;width: 100%;">
 			<!-- 透明的 canvas-->
 			<canvas id="myCanvas" class="myCanvas" disable-scroll="true" data-id="0" @touchstart="penStart" @touchmove="penMove"
 			 @touchend="penEnd" canvas-id="myCanvas"></canvas>
 		</view>
-		<view v-if="!close&&open" class="marking-tag3">
-			<!-- 颜色 -->
-			<view class="color">
+
+		<view class="uni-flex uni-row" style="justify-content: center;align-items: center;">
+
+			<view class="uni-flex uni-row color">
 				<block v-for="i in colorArr" :key="i.color">
 					<view :class="{colorSelection:i.active}">
 						<view @click="updateColor(i.color)" :style="{background: i.color}"></view>
 					</view>
 				</block>
 			</view>
-			<!-- 粗细 -->
-			<view class="thickness">
-				<view @tap="open=false" class="marking-tag4">收起</view>
-				<block v-for="i in thickness" :key="i.thickness">
-					<view :class="{colorSelection:i.active}">
-						<view @click="updateThickness(i.thickness)" :style="{height: i.thickness/5+'rpx'}"></view>
-					</view>
-				</block>
+			<view class="uni-flex uni-row" style="justify-content: center;">
+				<button style="margin: 5px;" @click="retDraw" type="default">清除</button>
+				<button style="margin: 5px;" @click="subCanvas" type="primary">确定</button>
 			</view>
-			<!-- 擦除 -->
-			<view class="Erase">
-				<view @click="retDraw" style="color:red">清除</view>
-			</view>
-		</view>
-		<view v-else-if="!close&&!open" @tap="open=true" class="marking-tag2">展开</view>
 
-		<view class="handCenter" style="display: flex;flex:1;height: 400px;width: 100%;">
-			<canvas id="showImgCancas" style="width: 100vh;height: 100vh;" disable-scroll="true"
-			 canvas-id="showImgCancas"></canvas>
 		</view>
 
+		<!-- <view class="handCenter" style="display: flex;flex:1;height: 400px;width: 100%;">
+			<canvas id="showImgCancas" style="width: 100vh;height: 100vh;" disable-scroll="true" canvas-id="showImgCancas"></canvas>
+		</view>
+
+		<view class="wrap-index" :style="{width:getWindowWidth()+'px',height:getWindowHeight()+'px'}"></view> -->
 
 	</view>
 </template>
@@ -88,7 +76,7 @@
 					},
 					{
 						thickness: 30,
-						active: true
+						active: false
 					},
 					{
 						thickness: 40,
@@ -96,7 +84,7 @@
 					},
 					{
 						thickness: 50,
-						active: false
+						active: true
 					}
 				],
 
@@ -112,6 +100,7 @@
 				lineSise: this.lineSise,
 				canvasName: "myCanvas",
 			});
+			this.updateThickness(40);
 		},
 
 		computed: {
@@ -131,6 +120,13 @@
 			}
 		},
 		methods: {
+			getWindowWidth(){
+				return uni.getSystemInfoSync().width;
+			},
+			getWindowHeight(){
+				return uni.getSystemInfoSync().height;
+			},
+			
 			//计算宽
 			widths(imgWidth) {
 				const res = uni.getSystemInfoSync();
@@ -198,7 +194,7 @@
 			// 保存涂鸦的图片
 			async subCanvas() {
 				const data = await this.canvasOperateObject.saveCanvas();
-				console.log(data);
+				// console.log(data);
 				this.base64StringToCancas(data);
 			},
 
@@ -220,7 +216,6 @@
 					windowWidth,
 					windowHeight
 				} = uni.getSystemInfoSync();
-				console.log("getSystemInfoSync:", uni.getSystemInfoSync());
 				context.drawImage(base64String, 0, 0, dWidth, dHeight);
 				context.draw();
 			},
@@ -234,6 +229,25 @@
 <style lang="scss" scoped>
 	.colorSelection {
 		background: #ccc;
+	}
+
+	.color {
+		display: flex;
+
+		.colorSelection {
+			background: #ccc;
+		}
+
+		>view {
+			background: #fff;
+			padding: 15rpx 30rpx;
+
+			>view {
+				width: 35rpx;
+				height: 35rpx;
+				border-radius: 50%;
+			}
+		}
 	}
 
 	.wrap {
